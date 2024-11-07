@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp0624.MainPage">
+
+    <HorizontalStackLayout BackgroundColor="SeaGreen">
+        <Button ImageSource="obraz3.png" HeightRequest="70" Clicked="Button_Clicked_Back"/>
+        <StackLayout>
+            <HorizontalStackLayout>
+                <Image Source="obraz.png"/>
+                <StackLayout>
+                    <Label Text="wykonawca" TextColor="White" FontSize="50"/>
+                    <Label Text="Album" TextColor="White" FontSize="30" FontAttributes="Italic"/>
+                    <VerticalStackLayout>
+                        <Label Text="liczba utworów" TextColor="#61D918" FontSize="20"/>
+                        <Label Text="rok wydania" TextColor="#61D918" FontSize="20"/>
+                    </VerticalStackLayout>
+                </StackLayout>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="pobrania" TextColor="#61D918"/>
+                <Button Text="Pobierz" TextColor="Black" BackgroundColor="#61D918" FontSize="20" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+        <Button ImageSource="obraz2.png" HeightRequest="70" Clicked="Button_Clicked_Next"/>
+    </HorizontalStackLayout>
+
+</ContentPage>

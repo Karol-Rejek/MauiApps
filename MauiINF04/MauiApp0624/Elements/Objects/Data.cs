@@ -10,11 +10,13 @@ namespace MauiApp0624.Elements.Objects
     {
         public string Artist { get; set; }
         public string Album { get; set; }
-        public string SongsNumber { get; set; }
+        public int SongsNumber { get; set; }
         public int Year { get; set; }
         public int DownloadNumber { get; set; }
 
-        private Data(string artist, string album, string songsNumber, int year, int downloadNumber)
+        public Data() { }
+
+        public Data(string artist, string album, int songsNumber, int year, int downloadNumber)
         {
             this.Artist = artist;
             this.Album = album;

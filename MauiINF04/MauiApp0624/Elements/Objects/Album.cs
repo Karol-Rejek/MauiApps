@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace MauiApp0624.Elements.Objects
 {
-    internal class Data
+    internal class Album
     {
         public string Artist { get; set; }
-        public string Album { get; set; }
+        public string AlbumName { get; set; }
         public int SongsNumber { get; set; }
         public int Year { get; set; }
         public int DownloadNumber { get; set; }
 
-        public Data() { }
+        public Album() { }
 
-        public Data(string artist, string album, int songsNumber, int year, int downloadNumber)
+        public Album(string artist, string album, int songsNumber, int year, int downloadNumber)
         {
             this.Artist = artist;
-            this.Album = album;
+            this.AlbumName = album;
             this.SongsNumber = songsNumber;
             this.Year = year;
             this.DownloadNumber = downloadNumber;

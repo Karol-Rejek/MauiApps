@@ -4,14 +4,14 @@ namespace MauiApp0624
 {
     public partial class MainPage : ContentPage
     {
-        private List<Data> datas;
-        public int currentIndex = 0;
+        private List<Album> albums;
+        public int currentAlbumIndex = 0;
 
         public MainPage()
         {
             InitializeComponent();
 
-            this.datas = new List<Data>();
+            this.albums = new List<Album>();
 
             ReadFromFile("Data.txt");
 
@@ -41,40 +41,47 @@ namespace MauiApp0624
             string filePath = Path.Combine(AppContext.BaseDirectory, file);
             using (StreamReader reader = new(filePath))
             {
-                string line, emptyLine;
-                while ((line = reader.ReadLine()) != null)
+                string lineArtist;
+                while ((lineArtist = reader.ReadLine()) != null)
                 {
-                    Data newData = new Data(line, reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()));
-                    emptyLine = reader.ReadLine();
-                    datas.Add(newData);
+                    Album newData = new Album()
+                    {
+                        Artist = lineArtist,
+                        AlbumName = reader.ReadLine(),
+                        SongsNumber = int.Parse(reader.ReadLine()),
+                        Year = int.Parse(reader.ReadLine()),
+                        DownloadNumber = int.Parse(reader.ReadLine()),
+                    };
+                    reader.ReadLine();
+                    albums.Add(newData);
                 }
             }
         }
 
         private void UpdateCurrentData() // UPDATE CURRENT SHOWED DATA ELEMENT
         {
-            artistLabel.Text = datas[currentIndex].Artist;
-            albumLabel.Text = datas[currentIndex].Album;
-            songsNumberLabel.Text = datas[currentIndex].SongsNumber.ToString() + " utworów";
-            yearLabel.Text = datas[currentIndex].Year.ToString();
-            downloadsLabel.Text = datas[currentIndex].DownloadNumber.ToString();
+            artistLabel.Text = albums[currentAlbumIndex].Artist;
+            albumLabel.Text = albums[currentAlbumIndex].AlbumName;
+            songsNumberLabel.Text = albums[currentAlbumIndex].SongsNumber.ToString() + " utworów";
+            yearLabel.Text = albums[currentAlbumIndex].Year.ToString();
+            downloadsLabel.Text = albums[currentAlbumIndex].DownloadNumber.ToString();
         }
 
         private void Button_Clicked_Back(object sender, EventArgs e) // GO TO PREVIOUS ELEMENT
         {
-            currentIndex = (currentIndex + 1) % datas.Count;
+            currentAlbumIndex = (currentAlbumIndex + 1) % albums.Count;
             UpdateCurrentData();
         }
 
         private void Button_Clicked_Next(object sender, EventArgs e) // GO TO NEXT ELEMENT
         {
-            currentIndex = (currentIndex - 1 + datas.Count) % datas.Count;
+            currentAlbumIndex = (currentAlbumIndex - 1 + albums.Count) % albums.Count;
             UpdateCurrentData();
         }
 
         private void Button_Clicked_Download(object sender, EventArgs e) // INCREASED DOWNLOADS NUMBER
         {
-            datas[currentIndex].DownloadNumber++;
+            albums[currentAlbumIndex].DownloadNumber++;
             UpdateCurrentData();
         }
     }

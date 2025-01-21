@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp0624.MainPage">
+
+    <StackLayout BackgroundColor="SeaGreen">
+        <HorizontalStackLayout>
+            <ImageButton Source="obraz3.png" HeightRequest="70" Clicked="Button_Clicked_Back" VerticalOptions="Center" HorizontalOptions="Start" Margin="20, 50"/>
+            <Image Source="obraz.png" WidthRequest="200" HeightRequest="200" Margin="10, 10, 30, 0" HorizontalOptions="Start"/>
+            <StackLayout HorizontalOptions="Center">
+                <Label x:Name="artistLabel" TextColor="White" FontSize="50"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label x:Name="albumLabel" TextColor="White" FontSize="30" FontAttributes="Italic"  />
+                <HorizontalStackLayout>
+                    <Label x:Name="songsNumberLabel" TextColor="#61D918" FontSize="20" Margin="10" VerticalOptions="StartAndExpand"/>
+                    <Label x:Name="yearLabel" TextColor="#61D918" FontSize="20" Margin="10" VerticalOptions="StartAndExpand"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+            <ImageButton Source="obraz2.png" HeightRequest="70" Clicked="Button_Clicked_Next" VerticalOptions="Center" HorizontalOptions="End" Margin="200, 50"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Margin="150, 0">
+            <Label x:Name="downloadsLabel" TextColor="#61D918" VerticalTextAlignment="Center" FontSize="20" Margin="20"/>
+            <Button Text="Pobierz" TextColor="Black" BackgroundColor="#61D918" FontSize="20" FontAttributes="Bold" Margin="10" Clicked="Button_Clicked_Download"/>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>
